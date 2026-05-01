@@ -21,6 +21,7 @@ We built a dataset of 150 passwords, hashed them using 7 different methods, then
 
 
 password_project/
+
     README.md                   This file. Start here.
 
     scripts/                    All Python and Bash scripts
