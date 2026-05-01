@@ -22,18 +22,31 @@ We built a dataset of 150 passwords, hashed them using 7 different methods, then
 
 password_project/
     README.md                   This file. Start here.
+
     scripts/                    All Python and Bash scripts
+
         step1_generate_passwords.py
+
         step2_generate_hashes.py
+
         step3_run_john.sh
+        
         step4_analyze_results.py
+
     passwords/                  Generated after running Step 1
+
     hashes/                     Generated after running Step 2
+
     results/                    Generated after running Step 3
+
     graphs/                     Charts generated after running Step 4
+
     docs/                       Extra documentation
+
         SETUP.md                How to install everything
+
         HOW_IT_WORKS.md         Simple explanation of every script
+
         RESULTS.md              What our results mean
 
 
@@ -47,12 +60,14 @@ Step 2. Open Terminal and go to this folder:
 
 cd ~/Desktop/password_project
 
-
 Step 3. Run each script in order:
 
 python3 scripts/step1_generate_passwords.py
+
 python3 scripts/step2_generate_hashes.py
+
 bash scripts/step3_run_john.sh ~/rockyou.txt
+
 python3 scripts/step4_analyze_results.py
 
 
