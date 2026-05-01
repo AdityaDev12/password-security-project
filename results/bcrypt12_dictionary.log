@@ -1,0 +1,14 @@
+Using default input encoding: UTF-8
+Loaded 150 password hashes with 150 different salts (bcrypt [Blowfish 32/64 X2])
+Cost 1 (iteration count) is 4096 for all loaded hashes
+/-\|/-\|/-\|/- Press 'q' or Ctrl-C to abort, almost any other key for status
+12345            (user4)
+123456           (user0)
+123456789        (user2)
+password         (user1)
+iloveyou         (user9)
+princess         (user29)
+1234567          (user6)
+abc123           (user15)
+12345678         (user3)
+Wait...Session aborted

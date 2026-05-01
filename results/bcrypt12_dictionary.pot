@@ -1,0 +1,8 @@
+$2b$12$ecqYOVChcsh7z4i1TO9BXeb1iqIkwbwVM9c/b0dWADUrTFyWsQwOa:12345
+$2b$12$Q2HpmYIzeZggiwdbHen.VuEqj5cOjHO/SWPv02lkR8XS.eF5WcTGq:123456
+$2b$12$dGWKhdfE5n6Nj0DyAJ4Q1u2omE.UXHNRKscHmjVfOFlNtailZ3Ma6:123456789
+$2b$12$Xy4y1l4f/r1K00VZDx4gDu7CUnGacM8NmFkT6sua9mfozDv2lj2sG:password
+$2b$12$rRzpLv26yumdhCR5c/xKiuugg8AlIgFrw5YOyXyRVDkjgM.AN1uD6:iloveyou
+$2b$12$lxu66UhLze52hmIwI73JyOV4g9m2BI8ZhngdWVbOKmMwcGoL9p1qO:princess
+$2b$12$vpncwyJ.uf.8QqHIGQSNdeTYRepKOA.e0D/Qc88Z0wpumwYkcMdL2:1234567
+$2b$12$VN3nNxkY6GjCwRTQGR41zO7XHdTXuXnKU6QBod9ciSL1xcFMWZm6y:abc123

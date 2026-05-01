@@ -1,0 +1,17 @@
+Algorithm,Attack Type,Common (30),Human Mod (30),Short Cplx (30),Passphrases (30),Random (30),Total Cracked,Crack Rate (%)
+md5,dictionary,30,3,0,0,0,33,22.0
+md5,rules,30,12,0,0,0,42,28.0
+md5,hybrid,0,0,0,0,0,0,0.0
+md5,mask,0,0,0,0,0,0,0.0
+sha1,dictionary,30,3,0,0,0,33,22.0
+sha1,rules,30,12,0,0,0,42,28.0
+sha1,hybrid,0,0,0,0,0,0,0.0
+sha1,mask,0,0,0,0,0,0,0.0
+sha256,dictionary,30,3,0,0,0,33,22.0
+sha256,rules,30,12,0,0,0,42,28.0
+sha256,hybrid,0,0,0,0,0,0,0.0
+sha256,mask,0,0,0,0,0,0,0.0
+bcrypt10,dictionary,17,0,0,0,0,17,11.3
+bcrypt10,rules,17,0,0,0,0,17,11.3
+bcrypt12,dictionary,8,0,0,0,0,8,5.3
+bcrypt14,dictionary,2,0,0,0,0,2,1.3
