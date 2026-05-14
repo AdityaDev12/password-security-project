@@ -1,31 +1,14 @@
-"""
-STEP 1: Password Dataset Generation
-=====================================
-Creates a synthetic password dataset organized into 5 categories
-that reflect realistic user behavior patterns.
-
-Categories:
-  1. Common passwords       - Weak, frequently used passwords from leaked databases
-  2. Human-modified         - Common words with typical substitutions (e.g., p@ssw0rd)
-  3. Short complex          - Short but include symbols and numbers
-  4. Passphrases            - Long multi-word phrases
-  5. Random high-entropy    - Randomly generated strong passwords
-
-Run: python3 step1_generate_passwords.py
-"""
+# Step 1: Password Dataset Generation
+# Creates 150 synthetic passwords across 5 categories and saves them to passwords/
+# Run: python3 step1_generate_passwords.py
 
 import random
 import string
 import os
 
-# Create the passwords directory if it doesn't exist
 os.makedirs("passwords", exist_ok=True)
 
-# ─────────────────────────────────────────────────────────
-# CATEGORY 1: Common / Weak Passwords
-# Real passwords that appear frequently in leaked databases.
-# These should be the easiest to crack.
-# ─────────────────────────────────────────────────────────
+# Category 1: Common weak passwords from leaked databases
 common_passwords = [
     "123456", "password", "123456789", "12345678", "12345",
     "111111", "1234567", "sunshine", "qwerty", "iloveyou",
@@ -35,29 +18,19 @@ common_passwords = [
     "password1", "batman", "trustno1", "baseball", "princess"
 ]
 
-# ─────────────────────────────────────────────────────────
-# CATEGORY 2: Human-Modified Passwords
-# People often take a common word and swap letters for
-# numbers/symbols (e.g., 'a' → '@', 'o' → '0', 'e' → '3').
-# These look complex but follow predictable patterns.
-# ─────────────────────────────────────────────────────────
+# Category 2: Common words with predictable letter substitutions (a->@, o->0, e->3)
 human_modified_passwords = [
-    "P@ssw0rd",   "P@ssword1",  "S3cur1ty!",  "W3lc0me!",
-    "L3tm31n!",   "Adm1n@123",  "Dr@g0n99",   "M0nk3y!1",
-    "Sunsh1ne@",  "Tr0uble!2",  "H@cker123",  "Qu3rty!",
-    "Sup3rman1",  "B@tm@n99",   "Fl00tball1", "J3ssica!",
-    "M1chael@1",  "Pr1nc3ss!",  "Sh@dow123",  "S0ccer!1",
-    "Passw0rd!",  "Secur1ty@",  "L0g1n#123",  "Welc0me@",
-    "Adm1n!456",  "Mas7er@99",  "Dr3am0n!",   "Tru5tno1!",
-    "B@s3ball1",  "Sun5hine@2"
+    "P@ssw0rd",  "P@ssword1", "S3cur1ty!", "W3lc0me!",
+    "L3tm31n!",  "Adm1n@123", "Dr@g0n99",  "M0nk3y!1",
+    "Sunsh1ne@", "Tr0uble!2", "H@cker123", "Qu3rty!",
+    "Sup3rman1", "B@tm@n99",  "Fl00tball1","J3ssica!",
+    "M1chael@1", "Pr1nc3ss!", "Sh@dow123", "S0ccer!1",
+    "Passw0rd!", "Secur1ty@", "L0g1n#123", "Welc0me@",
+    "Adm1n!456", "Mas7er@99", "Dr3am0n!",  "Tru5tno1!",
+    "B@s3ball1", "Sun5hine@2"
 ]
 
-# ─────────────────────────────────────────────────────────
-# CATEGORY 3: Short Complex Passwords
-# 6-8 characters with uppercase, lowercase, digits, symbols.
-# They look strong due to complexity but are short,
-# making brute-force more feasible.
-# ─────────────────────────────────────────────────────────
+# Category 3: Short 6-character passwords with mixed character types
 short_complex_passwords = [
     "aB3!xY", "Zk9@mP", "Lp2#Qr", "Wn7$Vc", "Td4%Hj",
     "Fs8^Nb", "Gq1&Ew", "Ry5*Ui", "Cx6(Op", "Mv0)As",
@@ -67,12 +40,7 @@ short_complex_passwords = [
     "Sr9^gN", "Pq1&hE", "On6*iW", "Ml3(jU", "Lk0)kT"
 ]
 
-# ─────────────────────────────────────────────────────────
-# CATEGORY 4: Passphrases
-# Long sequences of words strung together.
-# High length = high entropy even without complex characters.
-# These should be the hardest for brute-force.
-# ─────────────────────────────────────────────────────────
+# Category 4: Multi-word passphrases (long but no special characters)
 passphrases = [
     "correct horse battery staple",
     "my cat loves sunny days",
@@ -106,23 +74,15 @@ passphrases = [
     "dreams fade with the morning light"
 ]
 
-# ─────────────────────────────────────────────────────────
-# CATEGORY 5: Random High-Entropy Passwords
-# Truly random — no words, no patterns.
-# Maximum resistance to all attack types.
-# ─────────────────────────────────────────────────────────
+# Category 5: Truly random 16-character passwords (seeded for reproducibility)
 def generate_random_password(length=16):
-    """Generate a truly random password using all character types."""
-    characters = string.ascii_letters + string.digits + "!@#$%^&*()"
-    return ''.join(random.choice(characters) for _ in range(length))
+    chars = string.ascii_letters + string.digits + "!@#$%^&*()"
+    return ''.join(random.choice(chars) for _ in range(length))
 
-random.seed(42)  # Seed for reproducibility — same results every run
+random.seed(42)
 random_passwords = [generate_random_password(16) for _ in range(30)]
 
-# ─────────────────────────────────────────────────────────
-# SAVE ALL CATEGORIES TO SEPARATE FILES
-# Each file = one category, one password per line
-# ─────────────────────────────────────────────────────────
+# Save each category to its own file and build a combined master list
 categories = {
     "common":         common_passwords,
     "human_modified": human_modified_passwords,
@@ -133,21 +93,15 @@ categories = {
 
 all_passwords = []
 
-for category_name, password_list in categories.items():
-    filepath = f"passwords/{category_name}.txt"
-    with open(filepath, "w") as f:
-        for pwd in password_list:
+for name, pwd_list in categories.items():
+    with open(f"passwords/{name}.txt", "w") as f:
+        for pwd in pwd_list:
             f.write(pwd + "\n")
-    print(f"[✓] Saved {len(password_list):>2} passwords → {filepath}")
-    all_passwords.extend([(pwd, category_name) for pwd in password_list])
+    print(f"Saved {len(pwd_list)} passwords -> passwords/{name}.txt")
+    all_passwords.extend([(pwd, name) for pwd in pwd_list])
 
-# Also save a master list (all passwords together, no labels)
 with open("passwords/all_passwords.txt", "w") as f:
     for pwd, _ in all_passwords:
         f.write(pwd + "\n")
 
-print(f"\n[✓] Master list saved → passwords/all_passwords.txt")
-print(f"[✓] Total passwords: {len(all_passwords)}")
-print("\nCategory breakdown:")
-for cat, pwds in categories.items():
-    print(f"   {cat:<20} → {len(pwds)} passwords")
+print(f"\nTotal: {len(all_passwords)} passwords saved to passwords/")
