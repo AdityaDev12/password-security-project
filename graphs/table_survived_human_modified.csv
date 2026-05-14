@@ -1,0 +1,18 @@
+password,why_survived
+S3cur1ty!,"Double leet (e->3, u->1) not in best64 ruleset"
+W3lc0me!,"Double leet (e->3, o->0) not in best64 ruleset"
+L3tm31n!,Multiple leet substitutions exceeded rule depth
+Qu3rty!,Base word 'qwerty' modified beyond rule reach
+Sunsh1ne@,Mixed case + leet + symbol combination too complex
+H@cker123,Base word not a top-ranked wordlist entry
+Fl00tball1,Double-o substitution not in best64 ruleset
+M1chael@1,Leet + symbol combination not covered by rules
+Secur1ty@,Leet + symbol suffix not in best64 ruleset
+L0g1n#123,Multiple substitutions exceeded rule depth
+Welc0me@,Symbol suffix variant not in ruleset
+Adm1n!456,Digit sequence 456 not common suffix in rules
+Mas7er@99,Digit substitution (a->7) rare in best64
+Dr3am0n!,Not derived from a top-1000 wordlist word
+Tru5tno1!,Digit substitution (s->5) not in best64
+B@s3ball1,"Double substitution (a->@, e->3) not covered"
+Sun5hine@2,Digit substitution (s->5) rare in best64

@@ -1,0 +1,6 @@
+Category,Avg Entropy (bits),Min Entropy (bits),Max Entropy (bits),Avg Crack Time (MD5),Avg Crack Time (bcrypt14)
+Common,32.9,23.5,46.5,22.9 hrs,160 yrs
+Human Modified,56.4,45.9,65.5,"31,587 yrs",1.9B yrs
+Short Complex,39.3,39.3,39.3,82.1 days,"13,776 yrs"
+Passphrases,147.9,109.4,175.9,1.07e+32 yrs,6.54e+36 yrs
+Random,104.0,95.3,104.9,6.50e+18 yrs,3.98e+23 yrs
