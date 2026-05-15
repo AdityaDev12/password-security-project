@@ -31,7 +31,7 @@ Examples: correct horse battery staple, my cat loves sunny days
 
 Group 5 - Random high-entropy passwords
 These are 16-character passwords generated randomly with no pattern at all.
-Examples: aZ3!bYXk8@cPVm2#
+Examples: odJFCrn*l2edlBD#, d)z*1C5Jau2RJtBR
 
 How to run it:
 
@@ -93,6 +93,11 @@ Mask attack: Tries every combination matching a specific pattern like one capita
 
 Each attack runs for a maximum of 5 minutes.
 
+Not all attack types run against every algorithm. MD5, SHA-1, and SHA-256 get all 4 attack types.
+bcrypt(10) gets dictionary and rule-based only. bcrypt(12) and bcrypt(14) get dictionary only.
+This is because bcrypt is so slow that hybrid and mask attacks cannot make meaningful progress
+within the 5-minute time limit.
+
 How to run it:
 
 bash scripts/step3_run_john.sh ~/rockyou.txt
@@ -101,7 +106,10 @@ bash scripts/step3_run_john.sh ~/rockyou.txt
 This will take about 30 to 45 minutes total. Let it run completely.
 
 What it creates:
-A folder called results with .pot files for each attack. A .pot file lists every hash that was cracked and what the original password was.
+A folder called results with .pot files for each attack. A .pot file lists every hash that was
+cracked and what the original password was. In our experiment the hybrid and mask attacks produced
+no results beyond what the dictionary attack already found — the 5-minute window was not enough
+time for those attack types to reach passwords not already in the plain wordlist.
 
 ---
 
@@ -124,8 +132,10 @@ Shows which attack type worked better against each algorithm.
 Chart 4 - Hashing time per algorithm
 Shows how slow each algorithm is on a log scale. This explains why bcrypt is so much more secure.
 
-Chart 5 - Password length vs crack resistance
-Shows whether longer passwords survived better.
+Chart 5 - bcrypt cost factor: security vs performance tradeoff
+Shows how increasing the bcrypt cost factor from 10 to 12 to 14 reduces the number of passwords
+cracked while increasing the time it takes to compute one hash. This is the core bcrypt tradeoff:
+slightly slower for a legitimate user, dramatically slower for an attacker.
 
 How to run it:
 ```
